@@ -1,8 +1,8 @@
 pipeline {
   agent {
-    docker {
+    any {
       image 'node:6-alpine'
-      args '-u root -p 3000:3000'
+      args '-p 3000:3000'
     }
 
   }
@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Corriendo el programa'
-        sh 'npm install'
+        sh '/usr/bin/npm install'
       }
     }
 
